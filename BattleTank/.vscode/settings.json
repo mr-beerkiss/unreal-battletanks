@@ -2,6 +2,7 @@
 	"files.exclude": {
 		"E:/Code/github.com/mr-beerkiss/unreal-battletanks/BattleTank/.vscode": true,
 		"E:/Code/github.com/mr-beerkiss/unreal-battletanks/BattleTank/Content": true,
-		"E:/Code/github.com/mr-beerkiss/unreal-battletanks/BattleTank/Intermediate": true
+		"E:/Code/github.com/mr-beerkiss/unreal-battletanks/BattleTank/Intermediate": true,
+		"E:/Code/github.com/mr-beerkiss/unreal-battletanks/BattleTank/Saved": true
 	}
 }

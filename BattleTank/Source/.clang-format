@@ -1,0 +1,4 @@
+# Unreal Engine Convention is aligning & to the left
+PointerAlignment: Left
+ColumnLimit: 80
+BreakBeforeBraces: Allman

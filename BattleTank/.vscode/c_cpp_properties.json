@@ -4,8 +4,10 @@
             "name": "UnrealEngine",
             "includePath": [
                 "E:\\Unreal\\UE_4.22\\Engine\\Source",
+                "E:\\Code\\github.com\\mr-beerkiss\\unreal-battletanks\\BattleTank\\Intermediate\\Build\\Win64\\UE4Editor\\Inc\\BattleTank",
                 "E:\\Code\\github.com\\mr-beerkiss\\unreal-battletanks\\BattleTank\\Source",
                 "E:\\Code\\github.com\\mr-beerkiss\\unreal-battletanks\\BattleTank\\Source\\BattleTank",
+                "E:\\Code\\github.com\\mr-beerkiss\\unreal-battletanks\\BattleTank\\Source\\BattleTank\\Public",
                 "E:\\Unreal\\UE_4.22\\Engine\\Source\\Runtime",
                 "E:\\Unreal\\UE_4.22\\Engine\\Source\\Runtime\\Core\\Public",
                 "E:\\Unreal\\UE_4.22\\Engine\\Source\\Runtime\\Core",
