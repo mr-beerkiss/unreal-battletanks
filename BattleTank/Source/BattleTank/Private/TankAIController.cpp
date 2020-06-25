@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2020 Darren Beukes
 
 
 #include "TankAIController.h"
@@ -18,39 +18,22 @@ ATank* ATankAIController::GetPlayerTank() const
 void ATankAIController::BeginPlay()
 {
   Super::BeginPlay();
-
-  const auto ControlledTank = GetControlledTank();
-
-  if (ControlledTank)
-  {
-    UE_LOG(LogTemp, Warning, TEXT("AI Controlled Tank = %s"),
-           *ControlledTank->GetName());
-  }
-  else
-  {
-    UE_LOG(LogTemp, Error, TEXT("Could not get controlled tank"));
-  }
-
-  const auto PlayerTank = GetPlayerTank();
-
-  if (PlayerTank)
-  {
-    const FString AIName = ControlledTank
-                             ? ControlledTank->GetName()
-                             : "No name";
-    const FString PlayerTankName = PlayerTank->GetName();
-    const FString PlayerTankPosition = PlayerTank
-                                       ->GetActorLocation().ToString();
-    UE_LOG(LogTemp, Warning, TEXT("%s found %s at %s"), *AIName,
-           *PlayerTankName, *PlayerTankPosition);
-  }
-  else
-  {
-    UE_LOG(LogTemp, Error, TEXT("Unable to locate player tank"));
-  }
 }
 
 void ATankAIController::Tick(float DeltaSeconds)
 {
   Super::Tick(DeltaSeconds);
+
+  const auto AITank = GetControlledTank();
+  
+  if (AITank)
+  {
+    const auto PlayerTank = GetPlayerTank();
+
+    if (PlayerTank)
+    {
+      AITank->AimAt(PlayerTank->GetActorLocation());
+    }
+  }
+  
 }
