@@ -32,13 +32,13 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UTankAimingComponent::AimAt(FVector HitLocation) const
+void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed) const
 {
   if (Barrel)
   {
     
-    UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s"),
-    *GetName(), *HitLocation.ToString(), *Barrel->GetComponentLocation().ToString());  
+    UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s with velocity %f"),
+    *GetName(), *HitLocation.ToString(), *Barrel->GetComponentLocation().ToString(), LaunchSpeed);  
   }
   else
   {
