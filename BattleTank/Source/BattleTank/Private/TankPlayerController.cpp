@@ -12,7 +12,8 @@ void ATankPlayerController::BeginPlay()
 {
   Super::BeginPlay();
   // TODO: Why doesn't this work?
-  SetName(TEXT("Player Tank"));
+  SetName("Player Tank");
+  UE_LOG(LogTemp, Warning, TEXT("Tank name set to %s"), *GetName());
 }
 
 void ATankPlayerController::Tick(float DeltaSeconds)
