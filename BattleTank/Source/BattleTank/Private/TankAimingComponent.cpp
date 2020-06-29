@@ -1,6 +1,6 @@
 // Copyright 2020 Darren Beukes
 
-
+#include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
 // Sets default values for this component's properties
@@ -38,17 +38,23 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed) const
         OutLaunchVelocity,
         StartLocation,
         HitLocation,
-        LaunchSpeed
+        LaunchSpeed,
+        false,
+        0,
+        0,
+        ESuggestProjVelocityTraceOption::DoNotTrace
         ))
     {
       const auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-      const auto Name = GetOwner()->GetName();
+      // const auto Name = GetOwner()->GetName();
 
-      if (!Name.StartsWith("AITank"))
-      {
-        UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s with velocity %.2f to hit %s "),
-             *Name, *AimDirection.ToString(), LaunchSpeed, *HitLocation.ToString());  
-      }
+      // if (!Name.StartsWith("AITank"))
+      // {
+      //   UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s with velocity %.2f to hit %s "),
+      //        *Name, *AimDirection.ToString(), LaunchSpeed, *HitLocation.ToString());  
+      // }
+
+      MoveBarrelTowards(AimDirection);
       
       
     }
@@ -87,7 +93,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed) const
   }
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
   Barrel = BarrelToSet;
 }
@@ -100,7 +106,5 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection) const
 
   auto DeltaRotator = AimAsRotator - BarrelRotator;
   
-  // move the barrel the barrel the right amount this frame
-
-  // given a max elevation speed and the frame time
+  Barrel->Elevate(5);
 }
