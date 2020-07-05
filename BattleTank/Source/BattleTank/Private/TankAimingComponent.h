@@ -8,22 +8,25 @@
 
 // Forward declarations
 class UTankBarrel;
+class UTankTurret;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UTankAimingComponent : public UActorComponent
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 
-public:	
-	// Sets default values for this component's properties
-	UTankAimingComponent();
+public:
+  // Sets default values for this component's properties
+  UTankAimingComponent();
 
 private:
-        UTankBarrel* Barrel = nullptr;
- 
+  UTankBarrel* Barrel = nullptr;
+  UTankTurret* Turret = nullptr;
 
-public:	
-        void AimAt(FVector HitLocation, float LaunchSpeed) const;
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-        void MoveBarrelTowards(FVector AimDirection) const;
+public:
+  void AimAt(FVector HitLocation, float LaunchSpeed) const;
+  void SetBarrelReference(UTankBarrel* BarrelToSet);
+  void SetTurretReference(UTankTurret* TurretToSet);
+  void MoveBarrelTowards(FVector AimDirection) const;
+  void MoveTurretTowards(FVector AimDirection) const;
 };
