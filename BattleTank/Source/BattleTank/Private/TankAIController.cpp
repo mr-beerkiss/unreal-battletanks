@@ -1,7 +1,9 @@
 // Copyright 2020 Darren Beukes
 
-
 #include "TankAIController.h"
+#include "Tank.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
 
 ATank* ATankAIController::GetControlledTank() const
 {
