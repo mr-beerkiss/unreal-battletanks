@@ -12,7 +12,7 @@
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UTankBarrel : public UStaticMeshComponent
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 public:
   void Elevate(float RelativeSpeed);
 private:

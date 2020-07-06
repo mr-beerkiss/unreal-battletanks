@@ -12,10 +12,10 @@
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class UTankTurret : public UStaticMeshComponent
 {
-	GENERATED_BODY()
+  GENERATED_BODY()
 public:
   void Rotate(float RelativeSpeed);
 private:
   UPROPERTY(EditAnywhere, Category=Setup)
-  float MaxDegreesPerSecond = 25.0f;  
+  float MaxDegreesPerSecond = 25.0f;
 };

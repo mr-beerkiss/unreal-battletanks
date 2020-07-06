@@ -12,8 +12,6 @@ UTankAimingComponent::UTankAimingComponent()
   // Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
   // off to improve performance if you don't need them.
   PrimaryComponentTick.bCanEverTick = true;
-
-  // ...
 }
 
 
@@ -49,45 +47,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed) const
         ))
     {
       const auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-      // const auto Name = GetOwner()->GetName();
-      //
-      // if (!Name.StartsWith("AITank"))
-      // {
-      //   UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s with velocity %.2f to hit %s "),
-      //        *Name, *AimDirection.ToString(), LaunchSpeed, *HitLocation.ToString());  
-      // }
-
       MoveTurretTowards(AimDirection);
       MoveBarrelTowards(AimDirection);
     }
-    // else
-    // {
-    //   UE_LOG(LogTemp, Error, TEXT("Cannot suggest projectile velocity"));
-    // }
-
-    // If you want to use the bDrawDebug option, it's the last arg and can be
-    // called as follows
-    // const FCollisionResponseParams CollisionResponseParams;
-    // const TArray<AActor *> ActorsToIgnore;
-    //
-    // UGameplayStatics::SuggestProjectileVelocity(
-    //   GetWorld(),
-    //   OutLaunchVelocity,
-    //   StartLocation,
-    //   HitLocation,
-    //   LaunchSpeed,
-    //   false,
-    //   0.0,
-    //   0.0,
-    //   // default
-    //   ESuggestProjVelocityTraceOption::TraceFullPath,
-    //   CollisionResponseParams,
-    //   ActorsToIgnore,
-    //   true
-    // );
-
-    // UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s with velocity %f and direction %s"),
-    // *GetName(), *HitLocation.ToString(), *StartLocation.ToString(), LaunchSpeed, *OutLaunchVelocity.ToString());
   }
   else
   {
@@ -135,7 +97,6 @@ void UTankAimingComponent::MoveTurretTowards(FVector AimDirection) const
   auto DeltaRotator = AimAsRotator - TurretRotator;
 
   const auto Name = GetOwner()->GetName();
-
 
   Turret->Rotate(DeltaRotator.Yaw);
 }
