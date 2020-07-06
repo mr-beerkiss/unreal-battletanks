@@ -60,10 +60,10 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed) const
       MoveTurretTowards(AimDirection);
       MoveBarrelTowards(AimDirection);
     }
-    else
-    {
-      UE_LOG(LogTemp, Error, TEXT("Cannot suggest projectile velocity"));
-    }
+    // else
+    // {
+    //   UE_LOG(LogTemp, Error, TEXT("Cannot suggest projectile velocity"));
+    // }
 
     // If you want to use the bDrawDebug option, it's the last arg and can be
     // called as follows

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ObjectMacros.h"
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
@@ -26,6 +27,9 @@ public:
   UFUNCTION(BlueprintCallable, Category = Setup)
   void SetTurretReference(UTankTurret* TurretToSet);
 
+  UFUNCTION(BlueprintCallable, Category = Controls)
+  void Fire();
+
 protected:
   // Called when the game starts or when spawned
   virtual void BeginPlay() override;
@@ -34,7 +38,7 @@ protected:
   UTankAimingComponent* TankAimingComponent = nullptr;
 
   UPROPERTY(EditAnywhere, Category=Firing)
-  float LaunchSpeed = 100000.0; // sensible starting value of 1000 m/sT
+  float LaunchSpeed = 4000.0; // sensible starting value of 40 m/s
 
 public:
   // Called every frame
