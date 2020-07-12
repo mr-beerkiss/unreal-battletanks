@@ -18,18 +18,14 @@ class BATTLETANK_API ATank : public APawn
 {
   GENERATED_BODY()
 
-public:
-  // Sets default values for this pawn's properties
-  ATank();
-
+private:
+  // TODO: Should BlueprintCallable functions be private?
   UFUNCTION(BlueprintCallable, Category = Setup)
   void SetBarrelReference(UTankBarrel* BarrelToSet);
 
   UFUNCTION(BlueprintCallable, Category = Setup)
   void SetTurretReference(UTankTurret* TurretToSet);
 
-  UFUNCTION(BlueprintCallable, Category = Controls)
-  void Fire();
 
   // TSubclassOf is a type safe way of allowing objects to be set via the editor
   // Superior to UClass* SomeObject; Read more below.
@@ -38,18 +34,24 @@ public:
   TSubclassOf<AProjectile> ProjectileBlueprint;
   
   UTankBarrel* Barrel = nullptr;
-  
-protected:
-  // Called when the game starts or when spawned
-  virtual void BeginPlay() override;
 
-  // UPROPERTY(EditAnywhere)
   UTankAimingComponent* TankAimingComponent = nullptr;
 
   UPROPERTY(EditAnywhere, Category=Firing)
   float LaunchSpeed = 4000.0; // sensible starting value of 40 m/s
 
+  UPROPERTY(EditAnywhere, Category=Firing)
+  double ReloadTimeSeconds = 3.0;
+
+  double LastFireTime = 0.0;
+protected:
+  // Called when the game starts or when spawned
+  virtual void BeginPlay() override;
+
+
 public:
+  // Sets default values for this pawn's properties
+  ATank();
   // Called every frame
   virtual void Tick(float DeltaTime) override;
 
@@ -58,4 +60,7 @@ public:
       class UInputComponent* PlayerInputComponent) override;
 
   void AimAt(FVector HitLocation) const;
+
+  UFUNCTION(BlueprintCallable, Category = Controls)
+  void Fire();
 };
