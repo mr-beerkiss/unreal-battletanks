@@ -17,13 +17,13 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 {
   GENERATED_BODY()
 private:
-  UPROPERTY(EditAnywhere)
+  UPROPERTY(EditDefaultsOnly)
   float CrossHairXLocation = .5;
 
-  UPROPERTY(EditAnywhere)
+  UPROPERTY(EditDefaultsOnly)
   float CrossHairYLocation = .3333;
 
-  UPROPERTY(EditAnywhere)
+  UPROPERTY(EditDefaultsOnly)
   float LineTraceRange = 1000000.0; // unreal units in cm
 public:
   ATank* GetControlledTank() const;
