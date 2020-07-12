@@ -35,7 +35,7 @@ public:
   // Superior to UClass* SomeObject; Read more below.
   //https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/TSubclassOf/index.html
   UPROPERTY(EditAnywhere, Category = Setup)
-  TSubclassOf<AProjectile> Projectile;
+  TSubclassOf<AProjectile> ProjectileBlueprint;
   
   UTankBarrel* Barrel = nullptr;
   

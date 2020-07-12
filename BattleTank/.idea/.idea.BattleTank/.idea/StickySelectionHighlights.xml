@@ -8,6 +8,11 @@
             <PaintGroupHighlightMap />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Source/BattleTank/Private/Projectile.h">
+          <value>
+            <PaintGroupHighlightMap />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Source/BattleTank/Private/Tank.cpp">
           <value>
             <PaintGroupHighlightMap />
