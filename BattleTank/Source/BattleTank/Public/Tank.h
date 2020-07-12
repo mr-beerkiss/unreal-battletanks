@@ -30,17 +30,17 @@ private:
   // TSubclassOf is a type safe way of allowing objects to be set via the editor
   // Superior to UClass* SomeObject; Read more below.
   //https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/TSubclassOf/index.html
-  UPROPERTY(EditAnywhere, Category = Setup)
+  UPROPERTY(EditDefaultsOnly, Category = Setup)
   TSubclassOf<AProjectile> ProjectileBlueprint;
   
   UTankBarrel* Barrel = nullptr;
 
   UTankAimingComponent* TankAimingComponent = nullptr;
 
-  UPROPERTY(EditAnywhere, Category=Firing)
+  UPROPERTY(EditDefaultsOnly, Category=Firing)
   float LaunchSpeed = 4000.0; // sensible starting value of 40 m/s
 
-  UPROPERTY(EditAnywhere, Category=Firing)
+  UPROPERTY(EditDefaultsOnly, Category=Firing)
   double ReloadTimeSeconds = 3.0;
 
   double LastFireTime = 0.0;
