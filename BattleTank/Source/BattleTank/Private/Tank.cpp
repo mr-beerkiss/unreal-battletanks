@@ -1,9 +1,10 @@
 // Copyright 2020 Darren Beukes
 
 #include "Tank.h"
-// #include "TankBarrel.h"
+#include "TankBarrel.h"
 #include "TankAimingComponent.h"
-
+#include "Projectile.h"
+// #include "Engine/World.h"
 
 // Sets default values
 ATank::ATank()
@@ -12,11 +13,13 @@ ATank::ATank()
   // performance if you don't need it.
   PrimaryActorTick.bCanEverTick = false;
 
-  TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+  TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(
+      FName("Aiming Component"));
 }
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
+  Barrel = BarrelToSet;
   TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
 
@@ -27,7 +30,17 @@ void ATank::SetTurretReference(UTankTurret* TurretToSet)
 
 void ATank::Fire()
 {
-  UE_LOG(LogTemp, Warning, TEXT("Open fire!"));
+  if (!Barrel)
+  {
+    UE_LOG(LogTemp, Error, TEXT("Barrel has not been set"));
+    return;
+  }
+
+  GetWorld()->SpawnActor<AProjectile>(
+      Projectile,
+      Barrel->GetSocketLocation(FName("Projectile")),
+      Barrel->GetSocketRotation(FName("Projectile"))
+      ); 
 }
 
 // Called when the game starts or when spawned

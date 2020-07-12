@@ -11,6 +11,7 @@
 class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
+class AProjectile;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -30,6 +31,14 @@ public:
   UFUNCTION(BlueprintCallable, Category = Controls)
   void Fire();
 
+  // TSubclassOf is a type safe way of allowing objects to be set via the editor
+  // Superior to UClass* SomeObject; Read more below.
+  //https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/TSubclassOf/index.html
+  UPROPERTY(EditAnywhere, Category = Setup)
+  TSubclassOf<AProjectile> Projectile;
+  
+  UTankBarrel* Barrel = nullptr;
+  
 protected:
   // Called when the game starts or when spawned
   virtual void BeginPlay() override;
