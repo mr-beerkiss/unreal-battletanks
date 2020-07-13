@@ -53,6 +53,11 @@
             <PaintGroupHighlightMap />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Source/BattleTank/Private/TankTrack.cpp">
+          <value>
+            <PaintGroupHighlightMap />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Source/BattleTank/Private/TankTurret.cpp">
           <value>
             <PaintGroupHighlightMap />
@@ -69,6 +74,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/Source/BattleTank/Public/TankPlayerController.h">
+          <value>
+            <PaintGroupHighlightMap />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Source/BattleTank/Public/TankTrack.h">
           <value>
             <PaintGroupHighlightMap />
           </value>
