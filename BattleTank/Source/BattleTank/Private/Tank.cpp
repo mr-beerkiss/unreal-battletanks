@@ -3,6 +3,7 @@
 #include "Tank.h"
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
 #include "Projectile.h"
 // #include "Engine/World.h"
 
@@ -15,6 +16,9 @@ ATank::ATank()
 
   TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(
       FName("Aiming Component"));
+
+  // TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(
+      // FName("Movement Component"));
 }
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
@@ -40,7 +44,7 @@ void ATank::Fire()
 
   if (Now - LastFireTime < ReloadTimeSeconds)
     return;
-  
+
   auto Projectile = GetWorld()->SpawnActor<AProjectile>(
       ProjectileBlueprint,
       Barrel->GetSocketLocation(FName("Projectile")),
