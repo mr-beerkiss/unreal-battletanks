@@ -17,7 +17,7 @@ class BATTLETANK_API UTankTrack : public UStaticMeshComponent
 private:
   // Max Force per track in newtons  
   UPROPERTY(EditDefaultsOnly, Category=Setup)
-  float TrackMaxDrivingForce = 400000.0f;
+  float TrackMaxDrivingForce = 40000000.0f;
   // f = m x a;
   // a = 2.682m/s^2 (0-60mph in 10s);
   // a = 10ms/2 (1g) - Too fast for a real tank but probably ok for a game
