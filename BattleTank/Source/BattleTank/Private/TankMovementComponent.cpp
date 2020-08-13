@@ -28,7 +28,7 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
     return;
   }
 
-  UE_LOG(LogTemp, Warning, TEXT("Apply turning force of %.4f"), Throw);
+  // UE_LOG(LogTemp, Warning, TEXT("Apply turning force of %.4f"), Throw);
 
   LeftTrack->SetThrottle(Throw);
   RightTrack->SetThrottle(-Throw);
@@ -45,4 +45,10 @@ void UTankMovementComponent::Initialize(UTankTrack* LeftTrackToSet,
   
   LeftTrack = LeftTrackToSet;
   RightTrack = RightTrackToSet;
+}
+
+void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity,
+    bool bForceMaxSpeed)
+{
+  UE_LOG(LogTemp, Warning, TEXT("Move tank at velocity: %s"), *MoveVelocity.ToString());
 }

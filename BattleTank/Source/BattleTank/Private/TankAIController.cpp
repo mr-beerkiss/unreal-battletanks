@@ -20,6 +20,8 @@ void ATankAIController::Tick(float DeltaSeconds)
   if (!AITank || !PlayerTank)
     return;
 
+  MoveToActor(PlayerTank, AcceptanceRadius);
+
   AITank->AimAt(PlayerTank->GetActorLocation());
   AITank->Fire();
 }
